@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::get('/', function () {
+  return redirect()->route('productos.index');
+})->name('index');
+
+Route::resource('productos', ProductosController::class);
+
+Route::get('/formulario', function () {
+  return view('formulario');
+})->name('formulario');
