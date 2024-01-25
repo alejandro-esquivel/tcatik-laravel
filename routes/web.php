@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AlmacenesController;
+use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +27,10 @@ Route::get('/', function () {
 })->name('index');
 
 Route::resource('productos', ProductosController::class);
+
+Route::resource('almacenes', AlmacenesController::class);
+
+Route::resource('categorias', CategoriasController::class);
 
 Route::get('/formulario', function () {
   return view('formulario');

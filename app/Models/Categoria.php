@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Categoria extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    public function productos(): BelongsToMany
-    {
-        return $this->belongsToMany(Producto::class, 'productos_has_categorias');
-    }
+  protected $fillable = ['nombre'];
+
+  public function productos(): BelongsToMany
+  {
+    return $this->belongsToMany(Producto::class, 'productos_has_categorias');
+  }
 }

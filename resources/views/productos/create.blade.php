@@ -80,7 +80,7 @@
                 </div>
               </div>
               <div class="col-sm-12 mb-3">
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
               </div>
             </div>
           </form>
