@@ -27,9 +27,18 @@ class ProductosController extends Controller
     $request->validate([
       'nombre' => 'required|string|max:255',
       'precio' => 'required|numeric',
+      'categorias' => 'required'
     ]);
 
-    Producto::create($request->all());
+    $reqData = $request->all();
+    unset($reqData['categorias']);
+    unset($reqData['almacenes']);
+
+    $producto = Producto::create($reqData);
+
+    // Sincronizamos las categorías del formulario con las de la tabla
+    $producto->categorias()->sync($request->input('categorias', []));
+    $producto->almacenes()->sync($request->input('almacenes', []));
 
     return redirect()->route('productos.index')->with('success', 'Producto creado exitosamente.');
   }
