@@ -12,7 +12,7 @@ class ProductoSeeder extends Seeder
      */
     public function run(): void
     {
-        // Creamos 500 productos con datos falsos
+        // Creamos 10 productos con datos falsos
         Producto::factory()->count(10)->create();
     }
 }
